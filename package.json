@@ -1,0 +1,26 @@
+{
+  "name": "react-caffeine",
+  "version": "0.0.1",
+  "description": "small react wrapper",
+  "main": "dist/react-caffeine.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "files":[
+    "src/"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/necoco/react-caffeine.git"
+  },
+  "keywords": [
+    "coffeescript",
+    "reactjs"
+  ],
+  "author": "t.shinsay",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/necoco/react-caffeine/issues"
+  },
+  "homepage": "https://github.com/necoco/react-caffeine"
+}
