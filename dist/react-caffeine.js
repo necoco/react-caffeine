@@ -85,6 +85,20 @@
     return _results;
   };
 
+  caffeine.registerClass = function(tags) {
+    var tagBody, _results;
+    _results = [];
+    for (tagName in tags) {
+      tagBody = tags[tagName];
+      _results.push(registerTag(tagName, (function(body) {
+        return function(props, children) {
+          return React.createElement(body, props, children);
+        };
+      })(tagBody)));
+    }
+    return _results;
+  };
+
   module.exports = caffeine;
 
 }).call(this);
