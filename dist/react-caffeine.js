@@ -54,6 +54,10 @@
     registerTag(tagName, tagContent.bind(DOM));
   }
 
+  registerTag('text', function(props) {
+    return props;
+  });
+
   caffeine = function(component, fn) {
     return (fn || component).call(new Node(fn && component)).exec()[0];
   };
