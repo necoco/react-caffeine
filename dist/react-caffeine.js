@@ -59,7 +59,10 @@
   });
 
   caffeine = function(component, fn) {
-    return (fn || component).call(new Node(fn && component)).exec()[0];
+    var node;
+    node = new Node(fn && component);
+    (fn || component).call(node);
+    return node.exec()[0];
   };
 
   caffeine.register = function(tags) {
