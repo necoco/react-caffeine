@@ -14,12 +14,11 @@
     }
 
     Node.prototype.register = function(tag, props, child) {
-      this.content.push({
+      return this.content.push({
         tag: tag,
         props: props,
         child: child
       });
-      return this;
     };
 
     Node.prototype.exec = function() {

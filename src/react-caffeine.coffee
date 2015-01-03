@@ -9,7 +9,6 @@ class Node
     
   register: (tag, props, child)->
     @content.push {tag, props, child}
-    @
 
   exec: ()->
     for op in @content
