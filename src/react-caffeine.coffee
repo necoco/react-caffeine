@@ -26,6 +26,7 @@ registerTag = (tagName, tagContent)->
   )(tagName, tagContent)
 
 registerTag(tagName, tagContent.bind(DOM)) for tagName, tagContent of DOM
+registerTag 'text', (props)->props
 
 caffeine = (component, fn)->
   #[fn] [component,fn]
