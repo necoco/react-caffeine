@@ -7,9 +7,10 @@
   DOM = React.DOM;
 
   Node = (function() {
-    function Node(props) {
+    function Node(parent) {
       this.content = [];
-      this.props = props;
+      this.$ = parent;
+      this.props = parent != null ? parent.props : void 0;
     }
 
     Node.prototype.register = function(tag, props, child) {
@@ -43,7 +44,7 @@
           fn = props;
           props = null;
         }
-        return this.register(content, props || {}, fn != null ? fn.call(new Node(this.props)) : void 0);
+        return this.register(content, props || {}, fn != null ? fn.call(new Node(this.$)) : void 0);
       };
     })(tagName, tagContent);
   };
@@ -54,8 +55,7 @@
   }
 
   caffeine = function(component, fn) {
-    var _ref;
-    return (fn || component).call(new Node((_ref = fn && component) != null ? _ref.props : void 0)).exec()[0];
+    return (fn || component).call(new Node(fn && component)).exec()[0];
   };
 
   caffeine.register = function(tags) {
