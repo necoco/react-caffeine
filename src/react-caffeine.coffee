@@ -22,11 +22,11 @@ registerTag = (tagName, tagContent)->
         fn = props
         props = null
       if fn?
-        @register content, props || {}, null
-      else
         newNode = new Node(@$)
         fn.call(newNode)
         @register content, props || {}, newNode
+      else
+        @register content, props || {}, null
   )(tagName, tagContent)
 
 registerTag(tagName, tagContent.bind(DOM)) for tagName, tagContent of DOM

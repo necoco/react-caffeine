@@ -45,11 +45,11 @@
           props = null;
         }
         if (fn != null) {
-          return this.register(content, props || {}, null);
-        } else {
           newNode = new Node(this.$);
           fn.call(newNode);
           return this.register(content, props || {}, newNode);
+        } else {
+          return this.register(content, props || {}, null);
         }
       };
     })(tagName, tagContent);
