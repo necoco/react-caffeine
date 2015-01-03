@@ -30,7 +30,9 @@ registerTag 'text', (props)->props
 
 caffeine = (component, fn)->
   #[fn] [component,fn]
-  (fn || component).call(new Node(fn && component)).exec()[0];
+  node = new Node(fn && component)
+  (fn || component).call(node)
+  node.exec()[0]
 
 caffeine.register = (tags)->
   for tagName, tagBody of tags
