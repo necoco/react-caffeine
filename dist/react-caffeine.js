@@ -80,7 +80,7 @@
         return function(props, children) {
           return React.createElement(body, props, children);
         };
-      })(tagBody)));
+      })(React.createClass(tagBody))));
     }
     return _results;
   };

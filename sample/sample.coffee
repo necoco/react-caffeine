@@ -6,7 +6,7 @@ onClick = (ev)->
   
 #register custom component
 caffeine.register
-  CustomCircle: React.createClass
+  CustomCircle:
     render: ->
       #build DOM tag, passing @ as first argument
       caffeine @, ->

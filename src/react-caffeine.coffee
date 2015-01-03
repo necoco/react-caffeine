@@ -43,6 +43,6 @@ caffeine.register = (tags)->
     registerTag tagName, ((body)->
       (props, children)->
         React.createElement body, props, children
-    )(tagBody)
+    )(React.createClass(tagBody))
 
 module.exports = caffeine

@@ -1,6 +1,6 @@
 {
   "name": "react-caffeine",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "small react wrapper",
   "main": "dist/react-caffeine.js",
   "scripts": {
