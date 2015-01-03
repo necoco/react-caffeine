@@ -21,7 +21,12 @@ registerTag = (tagName, tagContent)->
       if typeof props is 'function'
         fn = props
         props = null
-      @register content, props || {}, fn?.call(new Node(@$))
+      if fn?
+        @register content, props || {}, null
+      else
+        newNode = new Node(@$)
+        fn.call(newNode)
+        @register content, props || {}, newNode
   )(tagName, tagContent)
 
 registerTag(tagName, tagContent.bind(DOM)) for tagName, tagContent of DOM

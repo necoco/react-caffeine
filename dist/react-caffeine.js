@@ -39,11 +39,18 @@
   registerTag = function(tagName, tagContent) {
     return Node.prototype[tagName] = (function(tag, content) {
       return function(props, fn) {
+        var newNode;
         if (typeof props === 'function') {
           fn = props;
           props = null;
         }
-        return this.register(content, props || {}, fn != null ? fn.call(new Node(this.$)) : void 0);
+        if (fn != null) {
+          return this.register(content, props || {}, null);
+        } else {
+          newNode = new Node(this.$);
+          fn.call(newNode);
+          return this.register(content, props || {}, newNode);
+        }
       };
     })(tagName, tagContent);
   };
