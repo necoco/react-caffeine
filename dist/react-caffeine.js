@@ -65,9 +65,10 @@
   });
 
   caffeine = function(component, fn) {
-    var node;
-    node = new Node(fn && component);
-    (fn || component).call(node);
+    var node, thisComponent;
+    thisComponent = fn && component;
+    node = new Node(thisComponent);
+    (fn || component).call(node, thisComponent);
     return node.exec()[0];
   };
 

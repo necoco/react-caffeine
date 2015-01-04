@@ -34,8 +34,9 @@ registerTag 'text', (props)->props
 
 caffeine = (component, fn)->
   #[fn] [component,fn]
-  node = new Node(fn && component)
-  (fn || component).call(node)
+  thisComponent = fn && component
+  node = new Node(thisComponent)
+  (fn || component).call(node, thisComponent)
   node.exec()[0]
 
 caffeine.register = (tags)->
